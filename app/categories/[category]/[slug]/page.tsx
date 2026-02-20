@@ -1,0 +1,39 @@
+import Details from "./Details";
+import sanityClient from "@/Client";
+import type { Post } from "@/types/type";
+import { notFound } from "next/navigation";
+
+export default async function page({
+  params,
+}: {
+  params: Promise<{ category: string; slug: string }>;
+}) {
+  const { slug } = await params;
+
+  const product = `*[_type == "post" && slug.current == $slug][0]{
+      _id,
+      title,
+      description,
+      price{
+        amount,
+        currency
+      },
+      category[]-> {
+      title, type},
+      mainImage {
+        asset -> {
+          _id, 
+          url
+        }, 
+        alt
+      }
+    }`;
+
+  const productData = await sanityClient.fetch<Post>(product, { slug });
+
+  if (!productData) {
+    notFound();
+  }
+
+  return <Details productData={productData} />;
+}
