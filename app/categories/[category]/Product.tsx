@@ -39,7 +39,7 @@ export default function Product({
             <div key={product._id}>
               <Link href={`/categories/${category}/${product.slug?.current}`}>
                 {product.mainImage && product.mainImage.asset && (
-                  <div className="relative w-full h-80 bg-gray-100 rounded-lg overflow-hidden">
+                  <div className="relative w-full h-96 bg-gray-100 rounded-lg overflow-hidden">
                     <Image
                       src={product.mainImage.asset.url}
                       alt={product.mainImage.alt || product.title}
@@ -55,10 +55,17 @@ export default function Product({
 
                   <Button
                     onClick={() => {
+                      const alreadyInCart = appStore
+                        .getState()
+                        .cart.some((item) => item._id === product._id); // Check if the product is already in the cart
                       addToCart(product);
-                      toast.success(
-                        `${product.title} has been added to your cart!`,
-                      );
+                      if (alreadyInCart) {
+                        toast.info(`${product.title} is already in your cart!`);
+                      } else {
+                        toast.success(
+                          `${product.title} has been added to your cart!`,
+                        );
+                      }
                     }}
                     variant="outline"
                     size="icon"

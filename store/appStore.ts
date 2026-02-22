@@ -21,7 +21,7 @@ interface APPSTORE {
 //Persist here is used to store to local storage whether the menu and cart are open or not, so that if the user refreshes the page, the state is preserved.
 
 export const appStore = create<APPSTORE>()(
-  persist(
+  persist( 
     (set) => ({
       menuOpen: false,
       toggleMenu: () => set((state) => ({ menuOpen: !state.menuOpen })),
@@ -34,13 +34,7 @@ export const appStore = create<APPSTORE>()(
             (item) => item._id === product._id,
           );
           if (existingItem) {
-            return {
-              cart: state.cart.map((item) =>
-                item._id === product._id
-                  ? { ...item, quantity: item.quantity + 1 }
-                  : item,
-              ),
-            };
+            return state;
           }
           return { cart: [...state.cart, { ...product, quantity: 1 }] };
         }),

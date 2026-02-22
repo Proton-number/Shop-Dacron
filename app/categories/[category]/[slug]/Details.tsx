@@ -76,7 +76,7 @@ export default function Details({ productData }: DetailsProps) {
               );
             }}
             variant="ghost"
-            className="mt-2 w-full hover:bg-black hover:text-white  cursor-pointer  border-none shadow-none  transition-all justify-start text-lg font-medium p-10 px-5 rounded-none duration-300 ease-in-out"
+            className="mt-2 w-full hover:bg-black hover:text-white active:bg-black active:text-white cursor-pointer border-none shadow-none transition-all justify-start text-lg font-medium p-10 px-5 rounded-none duration-300 ease-in-out"
           >
             Add to Cart
           </Button>
