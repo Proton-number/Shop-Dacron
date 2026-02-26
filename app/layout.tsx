@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Menu from "@/components/Menu";
 import Cart from "@/components/Cart";
 import { Toaster } from "@/components/ui/sonner";
+import ConditionalNav from "@/components/ConditionalNav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,9 +33,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased  font-sans text-black `}
       >
         <div className="relative z-10">
-          <Nav />
+          <ConditionalNav />
           <Menu />
-          <main className="flex-1  bg-white pt-32 px-5 sm:px-10 lg:px-5 ">
+          <main className="flex-1  bg-white  px-5 sm:px-10 lg:px-5 ">
             {children}
             <Toaster position="top-right" />
           </main>
