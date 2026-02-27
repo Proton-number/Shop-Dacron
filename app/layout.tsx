@@ -6,6 +6,8 @@ import Menu from "@/components/Menu";
 import Cart from "@/components/Cart";
 import { Toaster } from "@/components/ui/sonner";
 import ConditionalNav from "@/components/ConditionalNav";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +34,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased  font-sans text-black `}
       >
+        <>
+          <SpeedInsights />
+          <Analytics />
+        </>
         <div className="relative z-10">
           <ConditionalNav />
           <Menu />
