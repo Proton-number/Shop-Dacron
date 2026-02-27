@@ -7188,6 +7188,11 @@ lazystream@^1.0.0:
   dependencies:
     readable-stream "^2.0.5"
 
+ldrs@^1.1.9:
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/ldrs/-/ldrs-1.1.9.tgz#d3d86c9ea0278acb4d0dcb3bfa312d11aee26cee"
+  integrity sha512-JKVdzboxeZrKecA8ovi5iIDgs59wUrtJ+LDrHCgZecNrR0AJi2cJ3ZANJ+UCNS/sHRol73/jlypNCAMCXS+Ung==
+
 leven@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/leven/-/leven-3.1.0.tgz#77891de834064cccba82ae7842bb6b14a13ed7f2"
